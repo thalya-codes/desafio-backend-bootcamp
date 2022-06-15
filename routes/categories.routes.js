@@ -10,6 +10,7 @@ import {
 const categoriesRoutes = Router();
 
 categoriesRoutes.get("/",(req,res) =>  res.send("Tudo okay"));
+
 categoriesRoutes.post("/categories",create);
 
 categoriesRoutes.get("/categories", getAll);
