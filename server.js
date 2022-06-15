@@ -10,5 +10,6 @@ app.use(express.json());
 app.use(categoriesRoutes);
 app.use(productsRoutes);
 
+const port = process.env.PORT || 3000;
 
-app.listen(3000, () => console.log("server is running"));
+app.listen(port, () => console.log("server is running"));
