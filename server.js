@@ -7,12 +7,17 @@ import productsRoutes from "./routes/products.routes.js"
 sequelize.sync().then(() => console.log("db is ready"));
 
 const app = express();
+
 app.use(express.json());
-app.use(cors())
 app.use(categoriesRoutes);
 app.use(productsRoutes);
+app.use(cors({
+    origin: "*",
+    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"]
+}));
 
 
-const port = process.env.PORT || 3000;
+
+const port = process.env.PORT || 8000;
 
 app.listen(port, () => console.log("server is running"));
