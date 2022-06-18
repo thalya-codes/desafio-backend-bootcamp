@@ -12,12 +12,12 @@ app.use(express.json());
 app.use(categoriesRoutes);
 app.use(productsRoutes);
 app.use(cors({
-    origin: "*",
-    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"]
+    origin: '*',
+    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
 }));
 
 
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log("server is running"));

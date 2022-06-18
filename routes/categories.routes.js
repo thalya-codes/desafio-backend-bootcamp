@@ -6,19 +6,20 @@ import {
     update,
     deleteCategory
 } from"../controllers/Categories.controller.js"
+import cors from "cors";
 
 const categoriesRoutes = Router();
 
-categoriesRoutes.get("/",(req,res) =>  res.send("Tudo okay"));
+categoriesRoutes.get("/",cors(),(req,res) =>  res.send("Tudo okay"));
 
-categoriesRoutes.post("/categories",create);
+categoriesRoutes.post("/categories",cors(),create);
 
-categoriesRoutes.get("/categories", getAll);
+categoriesRoutes.get("/categories",cors(),getAll);
 
-categoriesRoutes.get("/categories/:id", getOne);
+categoriesRoutes.get("/categories/:id",cors(),getOne);
 
-categoriesRoutes.put("/categories/:id", update);
+categoriesRoutes.put("/categories/:id",cors(),update);
 
-categoriesRoutes.delete("/categories/:id", deleteCategory);
+categoriesRoutes.delete("/categories/:id",cors(),deleteCategory);
 
 export default categoriesRoutes;
