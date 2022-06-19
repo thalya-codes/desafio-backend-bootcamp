@@ -18,21 +18,15 @@ app.use((req, res, next) => {
 app.get("/",(req,res) =>  res.send("Tudo okay"));
 
 
-app.get('/categories', async  (req, res, next)  => {
-    await Categories.create(req.body);
-    return res.json({"message":"categories is inserted"});
+app.get('/categories', async  (req, res)  => {
+    const categories = await Categories.findAll();
+    return res.json(categories);
 })
     
 
-app.post('/categories', async  (req, res, next)  => {
-    if(req.body.category_id) {
-        await Products.create(req.body);
-        return res.json({"message":"products is inserted"});
-        
-    } else {
-        return res.json({"message": "o campo category_id é obrigatório"});
-    }
-
+app.post('/categories', async  (req, res)  => {
+    await Categories.create(req.body);
+    return res.json({"message":"categories is inserted"});
 })
 
 const port = process.env.PORT || 3000;
