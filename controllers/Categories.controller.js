@@ -1,7 +1,7 @@
 import Categories from "../models/Categories.model.js"
 
 const create = async (request, response) => {
-        await Categories.create(request.body);
+        await Categories.create(request.body.name);
         
         return response.json({"message":"categories is inserted"});
 }
