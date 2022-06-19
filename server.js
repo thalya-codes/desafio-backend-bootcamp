@@ -9,7 +9,11 @@ app.use(express.json())
 app.use((req, res, next) => {
     //console.log("Acessou o Middleware!");
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers",
+    "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"); 
+  
     app.use(cors());
     next();
 });
@@ -33,8 +37,8 @@ app.post('/categories', async  (req, res)  => {
 const port = process.env.PORT || 3000;
 
 
-app.listen(port,  ()  => {
-  console.log('CORS-enabled web server listening on port 80')
+app.listen(port, () => {
+    console.log("server is running")
 })
 
 /*
