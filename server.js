@@ -19,7 +19,7 @@ app.use(cors({
 }))
 
 app.post("/categories-test", (re,res) => {
-    return(re.body)
+    return res.json(re.body)
 });
 
 
