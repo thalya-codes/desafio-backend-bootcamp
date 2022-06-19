@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import  sequelize from"./config/database.config.js"
-import Categories from './models/Categories.model'
+import Categories from './models/Categories.model.js'
 
 let app = express()
 sequelize.sync().then(() => console.log("db is ready"));
