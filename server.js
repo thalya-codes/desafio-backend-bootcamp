@@ -13,10 +13,13 @@ app.use(express.json());
 app.use(categoriesRoutes);
 app.use(productsRoutes);
 
-app.use(cors({
-    origin: '*',
-    methods: ['GET','HEAD','PUT','PATCH','POST','DELETE']
-}))
+app.use((req, res, next) => {
+    //console.log("Acessou o Middleware!");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+    app.use(cors());
+    next();
+});
 
 app.post("/categories-test", (re,res) => {
     return res.json(re.body)
