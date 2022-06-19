@@ -15,6 +15,9 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get("/",(req,res) =>  res.send("Tudo okay"));
+
+
 app.get('/categories', async  (req, res, next)  => {
     await Categories.create(req.body);
     return res.json({"message":"categories is inserted"});
