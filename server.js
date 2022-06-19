@@ -14,7 +14,7 @@ app.use(categoriesRoutes);
 app.use(productsRoutes);
 
 app.use((_, res, next) => {
-    res.header("Access-Control-Allow-Methods", "*");
+    res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
     app.use(cors);
     next();
