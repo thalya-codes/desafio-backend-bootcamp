@@ -20,6 +20,8 @@ app.use((_, res, next) => {
 
 })
 
+app.post("/categories-test",create);
+
 
 const port = process.env.PORT || 3000;
 
