@@ -3,6 +3,7 @@ import  sequelize from"./config/database.config.js"
 import cors from "cors"
 import categoriesRoutes from "./routes/categories.routes.js";
 import productsRoutes from "./routes/products.routes.js"
+import { create } from"./controllers/Categories.controller.js"
 
 sequelize.sync().then(() => console.log("db is ready"));
 
