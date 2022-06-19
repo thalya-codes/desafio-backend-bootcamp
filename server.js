@@ -3,7 +3,7 @@ import  sequelize from"./config/database.config.js"
 import cors from "cors"
 import categoriesRoutes from "./routes/categories.routes.js";
 import productsRoutes from "./routes/products.routes.js"
-import { create } from"./controllers/Categories.controller.js"
+import { create, getAll } from"./controllers/Categories.controller.js"
 
 sequelize.sync().then(() => console.log("db is ready"));
 
@@ -22,6 +22,7 @@ app.use((_, res, next) => {
 })
 
 app.post("/categories-test",create);
+app.get("/categories-test",getAll);
 
 
 const port = process.env.PORT || 3000;
