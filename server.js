@@ -13,16 +13,14 @@ app.use(express.json());
 app.use(categoriesRoutes);
 app.use(productsRoutes);
 
-app.use((_, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-    app.use(cors);
-    next();
+app.use(cors({
+    origin: '*',
+    methods: ['GET','HEAD','PUT','PATCH','POST','DELETE']
+}))
 
-})
-
-app.post("/categories-test",create);
-app.get("/categories-test",getAll);
+app.post("/categories-test", (re,res) => {
+    return(re.body)
+});
 
 
 const port = process.env.PORT || 3000;
