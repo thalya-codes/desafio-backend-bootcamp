@@ -11,11 +11,14 @@ const app = express();
 app.use(express.json());
 app.use(categoriesRoutes);
 app.use(productsRoutes);
-app.use(cors({
-    origin: '*',
-    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
-}));
 
+app.use((_, res, next) => {
+    res.header("Access-Control-Allow-Methods", "*");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+    app.use(cors);
+    next();
+
+})
 
 
 const port = process.env.PORT || 3000;

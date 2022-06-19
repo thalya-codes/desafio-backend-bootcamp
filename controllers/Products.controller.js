@@ -4,6 +4,7 @@ const create = async (request, response) => {
     if(request.body.category_id) {
         await Products.create(request.body);
         return response.json({"message":"products is inserted"});
+        
     } else {
         return response.json({"message": "o campo category_id é obrigatório"});
     }

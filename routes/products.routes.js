@@ -7,19 +7,18 @@ import {
     deleteProduct
 } from"../controllers/Products.controller.js"
 import uploads from "../config/multer.config.js";
-import cors from "cors";
 
 
 const productsRoutes = Router();
 
-productsRoutes.post("/products",cors(),uploads.single("image"),create);
-0
-productsRoutes.get("/products",cors(),getAll);
+productsRoutes.post("/products",uploads.single("image"),create);
 
-productsRoutes.get("/products/:id",cors(),getOne);
+productsRoutes.get("/products",getAll);
 
-productsRoutes.put("/products/:id",cors(),update);
+productsRoutes.get("/products/:id",getOne);
 
-productsRoutes.delete("/products/:id",cors(),deleteProduct) 
+productsRoutes.put("/products/:id",update);
+
+productsRoutes.delete("/products/:id",deleteProduct) 
 
 export default productsRoutes;
