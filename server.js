@@ -2,9 +2,8 @@ import express from 'express'
 import cors from 'cors'
 import  sequelize from"./config/database.config.js"
 import Categories from './models/Categories.model'
-import { json } from 'sequelize/types'
 
-var app = express()
+let app = express()
 sequelize.sync().then(() => console.log("db is ready"));
 
 app.use(express.json())
@@ -33,7 +32,10 @@ app.post('/categories', async  (req, res, next)  => {
 
 })
 
-app.listen(80, function () {
+const port = process.env.PORT || 3000;
+
+
+app.listen(port,  ()  => {
   console.log('CORS-enabled web server listening on port 80')
 })
 
