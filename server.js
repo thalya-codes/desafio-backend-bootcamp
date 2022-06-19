@@ -4,9 +4,8 @@ import  sequelize from"./config/database.config.js"
 import Categories from './models/Categories.model.js'
 
 let app = express()
-sequelize.sync().then(() => console.log("db is ready"));
-
 app.use(express.json())
+
 app.use((req, res, next) => {
     //console.log("Acessou o Middleware!");
     res.header("Access-Control-Allow-Origin", "*");
@@ -14,6 +13,8 @@ app.use((req, res, next) => {
     app.use(cors());
     next();
 });
+
+sequelize.sync().then(() => console.log("db is ready"));
 
 app.get("/",(req,res) =>  res.send("Tudo okay"));
 
