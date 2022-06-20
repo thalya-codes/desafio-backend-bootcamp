@@ -1,5 +1,5 @@
-const  express = require("express")
-const  cors = require("cors")
+import express from"express")
+import cors from"cors"
 import sequelize from"./config/database.config.js"
 import Categories from './models/Categories.model.js'
 
